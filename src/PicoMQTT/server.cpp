@@ -319,8 +319,10 @@ void BasicServer::stop() {
 void BasicServer::loop() {
     TRACE_FUNCTION
 
-    while (server.hasClient()) {
-        auto client = Client(*this, server.accept());
+    while (1) {
+        auto c = server.accept();
+        if (!c.connected()) break;
+        auto client = Client(*this, c);
         clients.push_back(client);
         on_connected(client.get_client_id());
     }

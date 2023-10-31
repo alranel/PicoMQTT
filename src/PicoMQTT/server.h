@@ -5,12 +5,10 @@
 
 #include <Arduino.h>
 
-#if defined(ESP32)
-#include <WiFi.h>
-#elif defined(ESP8266)
+#if defined(ESP8266)
 #include <ESP8266WiFi.h>
 #else
-#error "This board is not supported."
+#include <WiFi.h>
 #endif
 
 #include "debug.h"

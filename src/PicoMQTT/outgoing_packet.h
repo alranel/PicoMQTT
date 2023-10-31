@@ -3,12 +3,10 @@
 // #define MQTT_OUTGOING_PACKET_DEBUG
 
 #include <Arduino.h>
+#include <Client.h>
 
 #include "config.h"
 #include "packet.h"
-
-class Print;
-class Client;
 
 #if PICOMQTT_OUTGOING_BUFFER_SIZE == 0
 #define PICOMQTT_UNBUFFERED

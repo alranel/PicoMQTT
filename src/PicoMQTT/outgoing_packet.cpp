@@ -1,4 +1,3 @@
-#include <Client.h>
 #include <Print.h>
 
 #include "debug.h"
@@ -137,7 +136,7 @@ size_t OutgoingPacket::write(const uint8_t * data, size_t length) {
 size_t OutgoingPacket::write_P(PGM_P data, size_t length) {
     TRACE_FUNCTION
 #ifndef PICOMQTT_UNBUFFERED
-    return write(data, length, memcpy_P);
+    return write(data, length, memcpy);
 #else
     // here we will need a buffer
     uint8_t buffer[128] __attribute__((aligned(4)));
@@ -145,7 +144,7 @@ size_t OutgoingPacket::write_P(PGM_P data, size_t length) {
     while (written < length) {
         const size_t remain = length - written;
         const size_t chunk_size = sizeof(buffer) < remain ? sizeof(buffer) : remain;
-        memcpy_P(buffer, data, chunk_size);
+        memcpy(buffer, data, chunk_size);
         const size_t write_size = print.write(buffer, chunk_size);
         written += write_size;
         data += write_size;
