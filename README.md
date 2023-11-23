@@ -1,6 +1,6 @@
 # PicoMQTT
 
-This is a lightweight and easy to use MQTT library for ESP8266 and ESP32 devices.
+This is a lightweight and easy to use MQTT library for ESP8266, ESP32 and other Arduino boards.
 
 ![Build](https://github.com/mlesniew/PicoMQTT/actions/workflows/ci.yml/badge.svg) ![License](https://img.shields.io/github/license/mlesniew/PicoMQTT) 
 
@@ -20,7 +20,7 @@ Features:
 Limitations:
 * Client only supports MQTT QoS levels 0 and 1
 * Broker only supports MQTT QoS level 0, ignores will and retained messages.
-* Currently only ESP8266 and ESP32 boards are supported
+* Currently only ESP8266, ESP32 and Arduino GIGA R1 boards are tested and known to work (but other Arduino or Arduino-compatible boards may work as well)
 
 
 ## Installation instructions
@@ -29,9 +29,10 @@ Limitations:
 * [PlatformIO](https://registry.platformio.org/libraries/mlesniew/PicoMQTT/installation)
 
 Additionally, PicoMQTT requires a recent version of the board core:
-** For ESP8266 core version 3.1 or later
-** For ESP32 core version 2.0.7 or later
 
+* For ESP8266 core version 3.1 or later
+* For ESP32 core version 2.0.7 or later
+* For Arduino GIGA R1 version 4.0.10 or later
 
 ## Quickstart
 
